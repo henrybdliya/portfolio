@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me | Henry</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #FFFFFF; 
+    color: #00412E; 
+    text-align: center;
+  }
+
+  .mini-header {
+    background: #00412E;
+    color: #FFFFFF;
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+  }
+  .about img {
+    width: 300px;
+    max-width: 80%;
+    border-radius: 15px;
+    margin: 20px auto;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0,65,46,0.25);
+    transition: transform 0.3s ease;
+  }
+  .about img:hover {
+    transform: scale(1.05);
+  }
+  .about-text {
+    max-width: 700px;
+    text-align: left;
+    background: #E6F0E6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,65,46,0.25);
+    margin-top: 20px;
+  }
+  .about-text h2 {
+    color: #00412E; 
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+  .read-more-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #96BF8A; 
+    color: #00412E; 
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .read-more-btn:hover {
+    background: #00412E;
+    color: #FFFFFF;
+  }
+
+  .full-text, #skills-section, #show-skills-btn, #show-less-btn {
+    display: none;
+    margin-top: 15px;
+  }
+
+  #skills-section h3 {
+    margin-bottom: 20px;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+  .skill-card {
+    background: #E6F0E6;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,65,46,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .skill-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,65,46,0.3);
+  }
+  .skill-card h4 {
+    color: #00412E;
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .highlight {
+    background: #00412E; 
+    color: #FFFFFF; 
+    padding: 40px 20px;
+    margin-top: 30px;
+  }
+  .highlight h3 {
+    margin-bottom: 10px;
+  }
+
+  footer {
+    padding: 20px;
+    background: #00412E; 
+    color: #FFFFFF;
+    margin-top: 30px;
+    text-align: center;
+  }
+  .footer-menu {
+    margin-top: 10px;
+  }
+  .footer-menu a {
+    color: #96BF8A;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+  }
+  .footer-menu a:hover {
+    color: #FFFFFF;
+  }
+
+  @media (max-width: 768px) {
+    .about img {
+      width: 80%;
+    }
+    .about-text {
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="mini-header">Henry Stephen Bdliya – Computer Engineer & Designer</div>
+
+<section class="about">
+  <img src="my-photo.jpg" alt="Henry Stephen Bdliya Photo">
+  <div class="about-text">
+    <h2>About Me</h2>
+    <p id="brief-text">
+      I’m Henry Stephen Bdliya, a Computer Engineer and Systems Specialist who loves turning ideas into reality. With experience in web development, graphic design, and data-driven solutions, I focus on creating projects that are not just functional, but genuinely useful and meaningful for the people who use them.
+    </p>
+
+    <div class="full-text" id="full-text">
+      <p>Over the years, I’ve built experience in web development, graphic design, data management, and system optimization. I’ve trained students in Python, HTML/CSS, and JavaScript, helping them complete real portfolio projects, and conducted workshops for teachers to boost digital adoption in classrooms. I also embrace AI tools and data-driven solutions to improve efficiency and creativity, whether in project design, analytics, or educational initiatives.</p>
+      <p>Mentoring and teaching have always been central to my work. Guiding students and teams to develop their skills, confidence, and passion for technology is a key part of my mission.</p>
+      <p>Apart from technical projects and teaching, I enjoy writing, reading, and exploring creative ideas through sketching. I often take on personal projects to experiment with new technologies and find creative solutions to challenges. Collaborating with peers on community tech initiatives and workshops allows me to apply my skills in real-world settings while fostering teamwork and leadership. I’m constantly exploring new tools and methods to stay at the forefront of technology, and I enjoy sharing what I learn with others. These experiences reflect my commitment to continuous learning, creativity, and delivering meaningful impact through my work.</p>
+    </div>
+
+    <span class="read-more-btn" id="read-more-btn" onclick="toggleReadMore()">Read More</span>
+    <span class="read-more-btn" id="show-skills-btn" onclick="showSkills()">Show My Skills</span>
+    <span class="read-more-btn" id="show-less-btn" onclick="showLess()">Show Less</span>
+
+    <div id="skills-section">
+      <h3>My Skills</h3>
+      <div class="skills-grid">
+        <div class="skill-card"><h4>Python</h4></div>
+        <div class="skill-card"><h4>C++</h4></div>
+        <div class="skill-card"><h4>JavaScript</h4></div>
+        <div class="skill-card"><h4>HTML/CSS</h4></div>
+        <div class="skill-card"><h4>React</h4></div>
+        <div class="skill-card"><h4>WordPress</h4></div>
+        <div class="skill-card"><h4>Kali Linux</h4></div>
+        <div class="skill-card"><h4>Adobe Photoshop</h4></div>
+        <div class="skill-card"><h4>Adobe Illustrator</h4></div>
+        <div class="skill-card"><h4>Adobe InDesign</h4></div>
+        <div class="skill-card"><h4>Figma</h4></div>
+        <div class="skill-card"><h4>Canva</h4></div>
+        <div class="skill-card"><h4>Pandas</h4></div>
+        <div class="skill-card"><h4>Excel</h4></div>
+        <div class="skill-card"><h4>Cloud Computing</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="highlight">
+  <h3>What Drives Me</h3>
+  <p>Creativity, continuous learning, and building technology that connects people and ideas.</p>
+</section>
+
+<footer>
+  <p>© 2023 Henry | Built with passion & creativity</p>
+  <div class="footer-menu">
+    <a href="index.html">Home</a>|
+    <a href="projects.html">Projects</a>|
+    <a href="testimonials.html">Testimonials</a>|
+    <a href="contact.html">Contact Me</a>
+  </div>
+</footer>
+
+<script>
+function toggleReadMore() {
+  const fullText = document.getElementById('full-text');
+  const readMoreBtn = document.getElementById('read-more-btn');
+  const showSkillsBtn = document.getElementById('show-skills-btn');
+  const showLessBtn = document.getElementById('show-less-btn');
+
+  // Show full text
+  fullText.style.display = "block";
+  readMoreBtn.style.display = "none";      // hide Read More
+  showSkillsBtn.style.display = "inline-block"; // show Show Skills
+  showLessBtn.style.display = "inline-block";   // temporary above full text
+  showLessBtn.style.marginTop = "10px";        // optional spacing
+}
+
+function showSkills() {
+  const skillsSection = document.getElementById('skills-section');
+  const showSkillsBtn = document.getElementById('show-skills-btn');
+  const showLessBtn = document.getElementById('show-less-btn');
+
+  skillsSection.style.display = "block";      // show skills grid
+  showSkillsBtn.style.display = "none";       // hide Show Skills
+  showLessBtn.style.display = "inline-block"; // ensure Show Less visible
+  // Move Show Less below skills
+  skillsSection.appendChild(showLessBtn);
+}
+
+function showLess() {
+  const fullText = document.getElementById('full-text');
+  const skillsSection = document.getElementById('skills-section');
+  const readMoreBtn = document.getElementById('read-more-btn');
+  const showSkillsBtn = document.getElementById('show-skills-btn');
+  const showLessBtn = document.getElementById('show-less-btn');
+  const aboutTextDiv = document.querySelector('.about-text');
+
+  // Hide everything back to brief state
+  fullText.style.display = "none";
+  skillsSection.style.display = "none";
+  readMoreBtn.style.display = "inline-block";  // show Read More
+  showSkillsBtn.style.display = "none";        // hide Show Skills
+  showLessBtn.style.display = "none";          // hide Show Less
+  // Move Show Less back to initial position in about-text div
+  aboutTextDiv.appendChild(showLessBtn);
+}
+</script>
+
+</body>
+</html>

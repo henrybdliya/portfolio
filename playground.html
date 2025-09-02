@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playground | Henry</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #FFFFFF;
+      color: #00412E;
+      text-align: center;
+      overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    /* Top Front Area */
+    .header-top {
+      background: #00412E;
+      color: #FFFFFF;
+      padding: 15px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    /* Playground Section */
+    .playground {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+    .playground h2 {
+      color: #00412E;
+      margin-bottom: 50px;
+      font-size: 2.2rem;
+    }
+
+    /* Cards Grid */
+    .experiment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .experiment-card {
+      background: rgba(150, 191, 138, 0.2);
+      border-radius: 15px;
+      padding: 30px 20px;
+      box-shadow: 0 8px 20px rgba(0,65,46,0.15);
+      backdrop-filter: blur(10px);
+      transform: translateY(50px);
+      opacity: 0;
+      transition: all 0.8s ease, background 0.4s ease, color 0.4s ease;
+    }
+    .experiment-card.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .experiment-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0,65,46,0.25);
+    }
+
+    .experiment-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #00412E;
+    }
+    .experiment-desc {
+      font-size: 0.95rem;
+      margin-top: 10px;
+      color: #00412E;
+    }
+
+    /* 3D Cube */
+    .cube {
+      width: 100px;
+      height: 100px;
+      margin: auto;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spin 6s infinite linear;
+    }
+    .cube div {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #00412E, #96BF8A);
+      opacity: 0.9;
+      border: 2px solid #FFFFFF;
+    }
+    .cube .front  { transform: translateZ(50px); }
+    .cube .back   { transform: rotateY(180deg) translateZ(50px); }
+    .cube .left   { transform: rotateY(-90deg) translateZ(50px); }
+    .cube .right  { transform: rotateY(90deg) translateZ(50px); }
+    .cube .top    { transform: rotateX(90deg) translateZ(50px); }
+    .cube .bottom { transform: rotateX(-90deg) translateZ(50px); }
+    @keyframes spin {
+      from { transform: rotateX(0) rotateY(0); }
+      to { transform: rotateX(360deg) rotateY(360deg); }
+    }
+
+    /* Typing Effect */
+    .typing {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #00412E;
+      white-space: nowrap;
+      border-right: 3px solid #96BF8A;
+      width: 0;
+      overflow: hidden;
+      margin: auto;
+      animation: typing 4s steps(25, end) infinite alternate, blink 0.7s step-end infinite;
+    }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    /* Toggle Button */
+    .toggle-btn {
+      padding: 12px 25px;
+      background: #00412E;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+    .toggle-btn:hover {
+      background: #96BF8A;
+      color: #00412E;
+    }
+
+    /* Favorite Color Mode */
+    .dark-mode {
+      background: rgb(11, 61, 145); /* RGB blue */
+      color: #E0EFFF;
+    }
+    .dark-mode .experiment-card {
+      background: rgba(11,61,145,0.2);
+      color: #E0EFFF;
+    }
+    .dark-mode .experiment-title,
+    .dark-mode .experiment-desc,
+    .dark-mode .typing,
+    .dark-mode .toggle-btn {
+      color: #E0EFFF;
+    }
+
+    /* Top Corner Caption */
+    .favorite-color-caption {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.1);
+      color: #E0EFFF;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 999;
+    }
+    .favorite-color-caption.show {
+      opacity: 1;
+    }
+
+    /* Contact Button */
+    .contact-btn {
+      display: inline-block;
+      margin-top: 50px;
+      padding: 12px 25px;
+      background: #96BF8A;
+      color: #00412E;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+    .contact-btn:hover {
+      background: #00412E;
+      color: #FFFFFF;
+    }
+
+    /* Footer with smaller menu */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #00412E;
+      color: white;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #FFFFFF;
+      margin: 0 8px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    footer a:not(:last-child)::after {
+      content: "|";
+      margin-left: 8px;
+      color: #FFFFFF;
+    }
+    footer a:hover {
+      color: #96BF8A;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Front Header -->
+  <div class="header-top">
+    Henry Stephen Bdliya | Welcome to My Playground
+  </div>
+
+  <!-- Playground Section -->
+  <section class="playground">
+    <h2>Creative Playground</h2>
+    <div class="experiment-grid">
+
+      <!-- 3D Cube -->
+      <div class="experiment-card">
+        <div class="cube">
+          <div class="front"></div>
+          <div class="back"></div>
+          <div class="left"></div>
+          <div class="right"></div>
+          <div class="top"></div>
+          <div class="bottom"></div>
+        </div>
+        <p class="experiment-title">Rotating 3D Cube</p>
+        <p class="experiment-desc">A spinning cube built only with CSS transforms & animations.</p>
+      </div>
+
+      <!-- Typing Effect -->
+      <div class="experiment-card">
+        <div class="typing">Coding is fun. Creativity is power.</div>
+        <p class="experiment-title">Typing Animation</p>
+        <p class="experiment-desc">A looping typing effect for fun headers or taglines.</p>
+      </div>
+
+      <!-- Favorite Color Toggle -->
+      <div class="experiment-card">
+        <p class="experiment-title">Which color defines me?</p>
+        <button class="toggle-btn" onclick="toggleMode()">Click Here</button>
+        <p class="experiment-desc">And discover the secret.</p>
+      </div>
+
+    </div>
+
+    <!-- Caption -->
+    <div class="favorite-color-caption" id="favoriteCaption">Welcome to the Blue World</div>
+
+    <!-- Contact Button -->
+    <a href="contact.html" class="contact-btn">Contact Me</a>
+  </section>
+
+  <!-- Footer with Menu -->
+  <footer>
+    <p>© 2023 Henry | Built with passion & creativity</p>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="testimonials.html">Testimonials</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      const caption = document.getElementById("favoriteCaption");
+      caption.classList.toggle("show");
+    }
+
+    // Scroll Reveal Animation
+    const cards = document.querySelectorAll('.experiment-card');
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < triggerBottom) {
+          card.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>

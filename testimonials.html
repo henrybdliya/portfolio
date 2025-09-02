@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials | Henry</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: #FFFFFF;
+      color: #00412E;
+      text-align: center;
+    }
+
+    /* Top Header */
+    .header-top {
+      background: #00412E;
+      color: #FFFFFF;
+      padding: 15px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    /* Navigation removed since footer menu is used consistently */
+
+    /* Testimonials Section */
+    .testimonials {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+    .testimonials h2 {
+      color: #00412E;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      text-align: left;
+    }
+    .testimonial-card {
+      background: #FFFFFF;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 6px 20px rgba(0, 65, 46, 0.15);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 65, 46, 0.25);
+    }
+    .testimonial-card::before {
+      content: "❝";
+      font-size: 3rem;
+      color: #96BF8A;
+      position: absolute;
+      top: -10px;
+      left: 15px;
+      opacity: 0.3;
+    }
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 15px;
+      color: #00412E;
+    }
+    .testimonial-author {
+      font-weight: bold;
+      color: #00412E;
+    }
+    .testimonial-role {
+      font-size: 0.9rem;
+      color: #96BF8A;
+    }
+
+    /* Contact Button */
+    .contact-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 25px;
+      background: #96BF8A;
+      color: #00412E;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+    .contact-btn:hover {
+      background: #00412E;
+      color: #FFFFFF;
+    }
+
+    /* Footer with smaller menu */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #00412E;
+      color: white;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #FFFFFF;
+      margin: 0 8px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    footer a:not(:last-child)::after {
+      content: "|";
+      margin-left: 8px;
+      color: #FFFFFF;
+    }
+    footer a:hover {
+      color: #96BF8A;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .testimonial-grid {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <div class="header-top">
+    Henry Stephen Bdliya | Hear What People Say
+  </div>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2>What People Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">Henry is an exceptionally creative developer. His attention to detail and clean design work stood out during our collaboration.</p>
+        <p class="testimonial-author">Alh. Muhammad Ali</p>
+        <p class="testimonial-role">Comptroller at UNICEF / NPC</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">Working with Henry was a smooth experience. He communicates clearly and delivers projects on time with high quality.</p>
+        <p class="testimonial-author">Mr. Elisha Yanzi</p>
+        <p class="testimonial-role">Head Inst. of Marama ICT Center</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">Henry combines both creativity and technical skills, making him a valuable contributor to any project team.</p>
+        <p class="testimonial-author">Engr. James Musa</p>
+        <p class="testimonial-role">Lecturer at Taraba State Poly</p>
+      </div>
+    </div>
+
+    <!-- Contact Button -->
+    <a href="contact.html" class="contact-btn">Contact Me</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Henry | Built with passion & creativity</p>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="playground.html">Playground</a>
+    </div>
+  </footer>
+
+</body>
+</html>
